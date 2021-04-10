@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
 
+import Input from '../../components/Input'
+
 import { Container } from '../Landing/styles';
 
 const Validate: React.FC = () => {
@@ -42,6 +44,8 @@ const Validate: React.FC = () => {
     <Container>
       <h1>Validação</h1>
       <h1>Insira o seu CPF:</h1>   
+      <Input/>
+
       <h2>{error}</h2>
     </Container>
   );
