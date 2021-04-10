@@ -7,7 +7,7 @@ import { Container } from './styles';
 
       
 const Landing: React.FC = () => {
-  const {message} = useInput();
+  const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
 
@@ -19,6 +19,7 @@ const Landing: React.FC = () => {
           break;
         }
         case '2': {
+          addMessage('');
           history.push('/list');
           break;
         }
@@ -28,7 +29,18 @@ const Landing: React.FC = () => {
         }
       }
     }
-  }, [message, history, setError]);
+  }, [message, history, setError, addMessage]);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setError('');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [setError]);
 
   return (
     <Container>

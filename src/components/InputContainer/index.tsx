@@ -3,24 +3,27 @@ import React from 'react';
 
 import { useInput } from '../../hooks/input';
 
-import N0 from '../../assets/botoes/n0.svg';
-import N1 from '../../assets/botoes/n1.svg'
-import N2 from '../../assets/botoes/n2.svg'
-import N3 from '../../assets/botoes/n3.svg'
-import N4 from '../../assets/botoes/n4.svg'
-import N5 from '../../assets/botoes/n5.svg'
-import N6 from '../../assets/botoes/n6.svg'
-import N7 from '../../assets/botoes/n7.svg'
-import N8 from '../../assets/botoes/n8.svg'
-import N9 from '../../assets/botoes/n9.svg'
+import N0 from '../../assets/botoesNUM/n0.svg';
+import N1 from '../../assets/botoesNUM/n1.svg'
+import N2 from '../../assets/botoesNUM/n2.svg'
+import N3 from '../../assets/botoesNUM/n3.svg'
+import N4 from '../../assets/botoesNUM/n4.svg'
+import N5 from '../../assets/botoesNUM/n5.svg'
+import N6 from '../../assets/botoesNUM/n6.svg'
+import N7 from '../../assets/botoesNUM/n7.svg'
+import N8 from '../../assets/botoesNUM/n8.svg'
+import N9 from '../../assets/botoesNUM/n9.svg'
 
-import { Container, SetOf3} from './styles';
+import Confirma from '../../assets/botoesOPC/CONFIRMA.svg';
+import Corrige from '../../assets/botoesOPC/CORRIGE.svg';
+import Branco from '../../assets/botoesOPC/BRANCO.svg';
+
+import { Container, SetOf3, SetOfOpc} from './styles';
 
 const InputContainer: React.FC = () => {
   const {addMessage} = useInput();
   return (
     <Container>
-
       <SetOf3>
         <input
           id="1"
@@ -102,6 +105,7 @@ const InputContainer: React.FC = () => {
         onClick={() => {addMessage('9')}}
         />
       </SetOf3>
+      
       <input
         id="0"
         name="0"
@@ -109,7 +113,38 @@ const InputContainer: React.FC = () => {
         src={N0}
         alt="n0"
         onClick={() => {addMessage('0')}}
-        />
+      />
+
+      <SetOfOpc>
+
+      <input
+        id='Branco'
+        name='Branco'
+        type='image'
+        src={Branco}
+        alt='Branco'
+        onClick={() => {addMessage('B')}}
+      />
+
+      <input
+        id='Corrige'
+        name='Corrige'
+        type='image'
+        src={Corrige}
+        alt='Corrige'
+        onClick={() => {addMessage('Cr')}}
+      />
+
+      <input
+        id='Confirma'
+        name='Confirma'
+        type='image'
+        src={Confirma}
+        alt='Confirma'
+        onClick={() => {addMessage('Cf')}}
+      />  
+      </SetOfOpc>
+
     </Container>
   );
 };
