@@ -20,16 +20,3 @@ export const Container = styled.div`
     margin-top: 50px;
   }
 `
-
-export const Button = styled.button `
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 15px;
-  text-align: center;
-  background-color: #555555;
-  border: none;
-  color: white;
-  border-radius: 12px;
-  display: flex;
-`

@@ -15,7 +15,7 @@ const Landing: React.FC = () => {
     if(message !== ''){
       switch (message) {
         case '1': {
-          history.push('/voting');
+          history.push('/votingSreen');
           break;
         }
         case '2': {
