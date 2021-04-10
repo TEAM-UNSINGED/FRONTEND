@@ -2,11 +2,13 @@ import React, {useCallback, useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
-
 import Input from '../../components/Input'
+
+import Api from '../../services/API';
 
 import { Container } from '../Landing/styles';
 import { Content } from './styles';
+
 
 const Validate: React.FC = () => {
   const {message, addMessage} = useInput();
@@ -14,13 +16,40 @@ const Validate: React.FC = () => {
   const [error, setError] = useState('');
   const [position, setPosition] = useState(0);
   const [CPF, setCPF] = useState <string[]>([]);
+
+  const clearError = useCallback(() => {
+    const timer = setTimeout(() => {
+      setError('');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [setError]);
+  
+  const handleValidate = useCallback(async (completo: string) => {
+    const response = await Api.get(
+      '/validate',
+      {headers: {completo}},
+    ).catch((error) => {
+      console.log(error, 'ERRO');
+    });
+    console.log(response, 'response');
+    /*.then((response) => {
+      if (!!response) {
+        history.push('/voting');
+      }else{
+        setError('CPF INVALIDO!');
+        clearError();
+      }
+    });*/
+  }, []);
+
   
   const changeValue = useCallback(() => {
-    console.log(position, 'POSITION');
-    console.log(CPF[position], 'CPF[POSITION]');
     setCPF((state) => [...state, message]);;
     setPosition(position+1);
-  }, [CPF, message, position]);
+  }, [message, position]);
   
   useEffect(() => {
     if(message !== ''){
@@ -31,23 +60,48 @@ const Validate: React.FC = () => {
         setCPF((state) => state.filter((message) => message === null));
         addMessage('');
         setPosition(0);
-      }else{
+      }else if (message === 'Cf'){
+        addMessage('');
+        if (position !== 11) {
+          setError('CPF INVALIDO MENOR 11!');
+          clearError();
+        }else{
+          let valida = 0;
+          let temp = 10;
+          for (let i = 0; i < 9; i++) {
+            valida += temp * parseInt(CPF[i], 10);
+            temp--;
+          }
+          if ((valida*10) % 11 === 10) {
+            valida = 0;
+          }else{
+            valida = (valida*10) % 11;
+          }
+          if (valida === parseInt(CPF[9], 10)) {
+            temp = 11;
+            valida = 0;
+            for (let i = 0; i <= 9; i++) {
+              valida += temp * parseInt(CPF[i], 10);
+              temp--;
+            }
+            if ((valida*10) % 11 === parseInt(CPF[10], 10)){
+              let completo = '';
+              for (let i = 0; i <= CPF.length; i++) {
+                completo += CPF[i];
+              }
+              handleValidate(completo);
+            }
+          }
+          setError('CPF INVALIDO AQUI FIM!');
+          clearError();
+        }
+      }else if (position < 11){
         changeValue();
         addMessage('');
       }
     }
-  }, [addMessage, changeValue, history, message]);
+  }, [CPF, addMessage, changeValue, clearError, handleValidate, history, message, position]);
 
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setError('');
-    }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [setError]);
 
   return (
     <Container>
