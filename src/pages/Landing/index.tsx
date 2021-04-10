@@ -27,6 +27,17 @@ const Landing: React.FC = () => {
     }
   }, [message, history, setError]);
 
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setError('');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [setError]);
+
   return (
     <Container>
       <h1>Bem vindo(a)!</h1>
