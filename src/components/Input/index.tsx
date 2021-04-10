@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { Container} from './styles';
+import { Container, Content} from './styles';
 
-const Input: React.FC = () => {
+interface InputProps {
+  message: string;
+}
+
+const Input: React.FC<InputProps> = ({message}) => {
   return (
     <Container>
-      <input/>
+      <Content>
+        {message}
+      </Content>
     </Container>
   );
 };

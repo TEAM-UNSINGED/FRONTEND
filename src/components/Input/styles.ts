@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  align-items: stretch;
-  border-radius: 2px;
-  padding: 30px 20px;
-  color: #c4f;
+  position: relative;
+  width: 60px;
+  display: block;
+  padding: 30px 10px 10px 10px;
+`
 
-`;
+export const Content = styled.div`
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  height: 60px;
+  border: 3px solid #666;
+  font-size: 30px;
+  font-weight: 400;
+  padding: 10px 2px 2px 2px;
+  text-align: center;
+`

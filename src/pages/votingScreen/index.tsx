@@ -43,7 +43,7 @@ const Voting: React.FC = () => {
     <Container>
       <h1>Seu voto para</h1>
       <TypeCandidate>Presidente</TypeCandidate>
-      <Content></Content>
+      <Content/>
       <h2>{error}</h2>
     </Container>
   );
