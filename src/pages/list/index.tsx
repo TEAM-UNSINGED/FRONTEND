@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import HUD from '../../components/HUD';
-
 import { Container, Button} from '../Landing/styles';
 const List: React.FC = () => {
   return (
@@ -15,3 +13,4 @@ const List: React.FC = () => {
 };
 
 export default List;
+
