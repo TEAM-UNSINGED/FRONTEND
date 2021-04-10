@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
+import { Content, TypeCandidate } from '../../components/HUD/styles';
 
 import {useInput} from '../../hooks/input';
 
@@ -41,8 +42,8 @@ const Voting: React.FC = () => {
   return (
     <Container>
       <h1>Seu voto para</h1>
-      <h1>Presidente</h1>   
-      <h1>Retangulo</h1>
+      <TypeCandidate>Presidente</TypeCandidate>
+      <Content></Content>
       <h2>{error}</h2>
     </Container>
   );
