@@ -1,11 +1,4 @@
-
-import React from 'react';
-
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-//  COMENTEI PORQUE TAVA DANDO ERRO E NÃO SEI SE VAI USAR ESTA ALTERNATIVA DE INPUT E TALZ ;_
-//  ASS: DANIELLE
-/*import React, {
+import React, {
   InputHTMLAttributes,
   useEffect,
   useRef,
@@ -13,7 +6,6 @@ import React from 'react';
   useCallback,
 } from 'react';
 
-import { IconBaseProps } from 'react-icons';
 
 import { useField } from '@unform/core';
 
@@ -21,10 +13,9 @@ import { Container} from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
   name: string;
-  icon?: React.ComponentType<IconBaseProps>;
 }
 
-const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
+const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -51,7 +42,6 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
 
   return (
     <Container isErrored={!!error} isFilled={isFilled} isFocused={isFocused}>
-      {Icon && <Icon size={20} /> }
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
@@ -63,4 +53,3 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   );
 };
 export default Input;
-*/

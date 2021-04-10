@@ -1,14 +1,23 @@
-import React, { useCallback } from 'react';
+import React, {useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
-// import HUD from '../../components/HUD';
+import {useInput} from '../../hooks/input';
 
 import { Container, Button} from './styles';
+
 const Landing: React.FC = () => {
+  const {message} = useInput();
   const history = useHistory();
   function handleButton(){
     history.push('/list')
   }
+
+  useEffect(() => {
+    if(message !== ''){
+      console.log(message, 'MESSAGE');
+    }
+  });
+
   return (
     <Container>
       <h1>Bem vindo(a)! <br></br> Escolha: </h1>
