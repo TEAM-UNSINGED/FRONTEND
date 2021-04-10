@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputContainer from '../InputContainer';
+import InputContainer from '../ButtonContainer';
 
 import { Container, Background } from './styles';
 
