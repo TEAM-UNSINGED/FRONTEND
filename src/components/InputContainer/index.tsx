@@ -24,7 +24,6 @@ const InputContainer: React.FC = () => {
   const {addMessage} = useInput();
   return (
     <Container>
-
       <SetOf3>
         <input
           id="1"
