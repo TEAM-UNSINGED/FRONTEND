@@ -17,4 +17,5 @@ export const Button = styled.button`
   border: none;
   color: white;
   border-radius: 12px;
+  display: flex;
 `
