@@ -25,7 +25,7 @@ const Landing: React.FC = () => {
       switch (message) {
         case '1': {
           addMessage('');
-          history.push('/votingSreen');
+          history.push('/validate');
           break;
         }
         case '2': {

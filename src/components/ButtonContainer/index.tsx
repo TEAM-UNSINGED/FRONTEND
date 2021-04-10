@@ -20,7 +20,7 @@ import Branco from '../../assets/botoesOPC/BRANCO.svg';
 
 import { Container, SetOf3, SetOfOpc} from './styles';
 
-const InputContainer: React.FC = () => {
+const ButtonContainer: React.FC = () => {
   const {addMessage} = useInput();
   return (
     <Container>
@@ -149,4 +149,4 @@ const InputContainer: React.FC = () => {
   );
 };
 
-export default InputContainer;
+export default ButtonContainer;
