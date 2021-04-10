@@ -6,7 +6,7 @@ import List from '../pages/list';
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Landing} />
-    <Route path="/list" component={List}/>
+    <Route path="/list" component={List} />
   </Switch>
 );
 
