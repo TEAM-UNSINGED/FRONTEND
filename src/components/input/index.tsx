@@ -1,6 +1,11 @@
+
+import React from 'react';
+
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {
+//  COMENTEI PORQUE TAVA DANDO ERRO E NÃO SEI SE VAI USAR ESTA ALTERNATIVA DE INPUT E TALZ ;_
+//  ASS: DANIELLE
+/*import React, {
   InputHTMLAttributes,
   useEffect,
   useRef,
@@ -58,3 +63,4 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   );
 };
 export default Input;
+*/

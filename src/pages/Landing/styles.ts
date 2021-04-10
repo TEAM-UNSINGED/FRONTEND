@@ -8,8 +8,8 @@ export const Container = styled.div`
   left: 14.7%;
   top: 35.2%;
   display: block;
-
-  button {
+`
+ export const Button = styled.button `
     margin-top: 10px;
     font-size: 15px;
     font-weight: 600;
@@ -19,6 +19,6 @@ export const Container = styled.div`
     border: none;
     color: white;
     border-radius: 12px;
-  }
+    display: flex;
 `
 
