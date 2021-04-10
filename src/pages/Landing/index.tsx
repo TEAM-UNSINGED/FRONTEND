@@ -1,20 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
 
 import { Container } from './styles';
-
       
 const Landing: React.FC = () => {
   const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
 
+  const clearError = useCallback(() => {
+    const timer = setTimeout(() => {
+      setError('');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [setError]);
+
   useEffect(() => {
     if(message !== ''){
       switch (message) {
         case '1': {
+          addMessage('');
           history.push('/votingSreen');
           break;
         }
@@ -26,21 +36,11 @@ const Landing: React.FC = () => {
 
         default: {
           setError('OPÇÃO INVALIDA TENTE NOVAMENTE!');
+          clearError();
         }
       }
     }
-  }, [message, history, setError, addMessage]);
-
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setError('');
-    }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [setError]);
+  }, [message, history, setError, addMessage, clearError]);
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
@@ -9,6 +9,16 @@ const List: React.FC = () => {
   const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
+
+  const clearError = useCallback(() => {
+    const timer = setTimeout(() => {
+      setError('');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [setError]);
 
   useEffect(() => {
     if(message !== ''){
@@ -22,21 +32,11 @@ const List: React.FC = () => {
 
         default: {
           setError('OPÇÃO INVALIDA TENTE NOVAMENTE!');
+          clearError();
         }
       }
     }
-  }, [message, history, setError, addMessage]);
-
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setError('');
-    }, 5000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [setError]);
+  }, [message, history, setError, addMessage, clearError]);
 
   return (
     <Container>
