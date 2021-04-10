@@ -7,11 +7,11 @@ import HUD from './components/HUD';
 import GlobalStyle from './styles/global';
 
 const App: React.FC = () => (
-      <Router>
-        <Routes />
-        <HUD/>
-        <GlobalStyle/>
-      </Router>
+    <Router>
+      <Routes />
+      <HUD/>
+      <GlobalStyle/>
+    </Router>
 );
 
 export default App;

@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: stretch;
   border-radius: 2px;
   padding: 30px 20px;
+
 `;
 
 export const Background = styled.div`
