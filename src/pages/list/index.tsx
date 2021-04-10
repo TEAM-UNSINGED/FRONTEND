@@ -9,27 +9,39 @@ const List: React.FC = () => {
   const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
-
   const clearError = useCallback(() => {
     const timer = setTimeout(() => {
       setError('');
     }, 5000);
-
+    
     return () => {
       clearTimeout(timer);
     };
   }, [setError]);
-
+  
   useEffect(() => {
     if(message !== ''){
       switch (message) {
-        
+        case '1': {
+          addMessage('');
+          history.push('/candidatesList');
+          break;
+        }
+        case '2': {
+          addMessage('');
+          history.push('/candidatesList');
+          break;
+        }
+        case '3': {
+          addMessage('');
+          history.push('/candidatesList');
+          break;
+        }
         case 'B': {
           addMessage('');
           history.push('/');
           break;
         }
-
         default: {
           setError('OPÇÃO INVALIDA TENTE NOVAMENTE!');
           clearError();
