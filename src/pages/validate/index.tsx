@@ -44,7 +44,6 @@ const Validate: React.FC = () => {
       }
     });*/
   }, []);
-
   
   const changeValue = useCallback(() => {
     setCPF((state) => [...state, message]);;

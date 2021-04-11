@@ -1,17 +1,17 @@
-import React, {/*useCallback,*/ useEffect, useState} from 'react';
-// import { useHistory } from "react-router-dom";
+import React, {/*useCallback,*/ useCallback, useEffect, useState} from 'react';
+import { useHistory } from "react-router-dom";
 
-// import {useInput} from '../../hooks/input';
+import {useInput} from '../../hooks/input';
 
 // import Input from '../../components/Input'
 
-import BottomContainer from '../../components/BottomContainer';
+import BottomContainer from '../../components/BottonContainer';
 import { Container } from '../Landing/styles';
 import { Content } from './styles';
 
 const CandidateList: React.FC = () => {
-  // const {message, addMessage} = useInput();
-  // const history = useHistory();
+  const {message, addMessage} = useInput();
+  const history = useHistory();
   const [error, setError] = useState('');
   const valor = 'X'
   const nome = 'Dado no back-end'
@@ -26,6 +26,19 @@ const CandidateList: React.FC = () => {
       clearTimeout(timer);
     };
   }, [setError]);
+
+  const handleInputOption = useCallback(() => {
+    if (message === 'B') {
+      addMessage('');
+      history.push('/list');
+    }
+  }, [addMessage, history, message]);
+
+  useEffect(() => {
+    if(message !== ''){
+      handleInputOption();
+    }
+  });
 
   return (
     <Container>
