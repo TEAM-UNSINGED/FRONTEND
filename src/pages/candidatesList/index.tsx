@@ -1,20 +1,22 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import { useHistory } from "react-router-dom";
+import React, {/*useCallback,*/ useEffect, useState} from 'react';
+// import { useHistory } from "react-router-dom";
 
-import {useInput} from '../../hooks/input';
+// import {useInput} from '../../hooks/input';
 
-import Input from '../../components/Input'
+// import Input from '../../components/Input'
 
+import BottomContainer from '../../components/BottomContainer';
 import { Container } from '../Landing/styles';
 import { Content } from './styles';
 
 const CandidateList: React.FC = () => {
-  const {message, addMessage} = useInput();
-  const history = useHistory();
+  // const {message, addMessage} = useInput();
+  // const history = useHistory();
   const [error, setError] = useState('');
   const valor = 'X'
   const nome = 'Dado no back-end'
   const partido = 'Dado no back-end'
+ 
   useEffect(() => {
     const timer = setTimeout(() => {
       setError('');
@@ -42,8 +44,8 @@ const CandidateList: React.FC = () => {
       </Content>
       <h1>Nome: {nome}</h1>
       <h1>Partido: {partido}</h1>
-
       <h2>{error}</h2>
+      <BottomContainer Confirma='o PROXIMO candidato' Corrige='o candidato ANTERIOR' Branco='VOLTAR a tela de listagem'/>
     </Container>
   );
 };
