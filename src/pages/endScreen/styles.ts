@@ -28,12 +28,11 @@ export const Container = styled.div`
     margin-top: 342px;
     color: #696969;
   }
-  img {
+  svg {
     position: absolute;
     width: 50px;
-    height: 25px;
-    left: 804px;
-    right: 500px;
-    top: 36px;
+    height: 50px;
+    left: 93%;
+    top: 0;
   }
 `
