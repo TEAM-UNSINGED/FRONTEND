@@ -7,6 +7,8 @@ import Validate from '../pages/validate';
 import Voting from '../pages/votingScreen';
 import CandidateList from '../pages/candidatesList'
 
+import EndEscreen from '../pages/endScreen';
+
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Landing} />
@@ -14,6 +16,7 @@ const Routes: React.FC = () => (
     <Route path="/validate" component={Validate} />
     <Route path="/voting" component={Voting} />
     <Route path="/candidatesList" component={CandidateList} />
+    <Route path="/endScreen" component={EndEscreen} />
   </Switch>
 );
 

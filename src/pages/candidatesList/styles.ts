@@ -22,11 +22,13 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
+
     width: 50px;
     height: 60px;
     border: 2px solid #666;
     font-size: 30px;
     font-weight: 400;
+
     padding: 10px 2px 2px 2px;
     padding-left: 10px;
     display: inline-block;
@@ -48,4 +50,5 @@ export const BottomPictureContainer = styled.div`
 export const NumberContainer = styled.div`
   display: inline-flex;
   margin-left: 1%;
+
 `

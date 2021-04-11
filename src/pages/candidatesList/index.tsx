@@ -6,7 +6,9 @@ import {useInput} from '../../hooks/input';
 import BottomContainer from '../../components/BottonContainer';
 import PictureContainer from '../../components/PictureContainer';
 
+
 import { Container, Content, NumberContainer, TopPictureContainer, BottomPictureContainer} from './styles';
+
 
 const CandidateList: React.FC = () => {
   const {message, addMessage} = useInput();
