@@ -10,7 +10,6 @@ const Voting: React.FC = () => {
   const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
-
   useEffect(() => {
     if(message !== ''){
       switch (message) {
@@ -42,8 +41,8 @@ const Voting: React.FC = () => {
   return (
     <Container>
       <h1>Seu voto para</h1>
-      <TypeCandidate>Presidente</TypeCandidate>
-      <Content/>
+      <TypeCandidate>candidate</TypeCandidate>
+      <Content></Content>
       <h2>{error}</h2>
     </Container>
   );
