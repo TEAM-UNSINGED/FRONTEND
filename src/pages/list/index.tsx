@@ -37,11 +37,6 @@ const List: React.FC = () => {
           history.push('/candidatesList');
           break;
         }
-        case 'Cf': {
-          addMessage('');
-          history.push('/endScreen');
-          break;
-        }
         case 'B': {
           addMessage('');
           history.push('/');

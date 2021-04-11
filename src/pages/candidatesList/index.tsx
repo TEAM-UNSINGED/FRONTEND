@@ -1,32 +1,22 @@
-import React, {/*useCallback,*/ useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
 
-import BottomContainer from '../../components/BottomContainer';
+import BottomContent from '../../components/BottomContainer';
 import PictureContainer from '../../components/PictureContainer';
 
 
-import { Container, Content, NumberContainer, TopPictureContainer, BottomPictureContainer} from './styles';
+import { Container, Content, NumberContainer, BottomContainer, TopPictureContainer, BottomPictureContainer} from './styles';
 
 
 const CandidateList: React.FC = () => {
   const {message, addMessage} = useInput();
   const history = useHistory();
-  const [error, setError] = useState('');
   const valor = 'X'
   const nome = 'Dado no back-end'
   const partido = 'Dado no back-end'
- 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setError('');
-    }, 5000);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [setError]);
 
   const handleInputOption = useCallback(() => {
     if (message === 'B') {
@@ -66,8 +56,12 @@ const CandidateList: React.FC = () => {
         <PictureContainer/>
       </BottomPictureContainer>
       <h1>Partido: {partido}</h1>
-      <BottomContainer Confirma='o PROXIMO candidato' Corrige='o candidato ANTERIOR' Branco='VOLTAR a tela de listagem'>
-        <h2>{error}</h2>
+      <BottomContainer>
+        <BottomContent 
+          Confirma='o PROXIMO candidato' 
+          Corrige='o candidato ANTERIOR' 
+          Branco='VOLTAR a tela de listagem'
+        />
       </BottomContainer>
     </Container>
   );

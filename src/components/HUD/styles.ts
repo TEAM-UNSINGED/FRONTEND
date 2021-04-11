@@ -16,22 +16,3 @@ export const Background = styled.div`
   background: url(${urnaHUD});
   background-size: cover;
 `;
-
-export const Content = styled.div`
-  display: block;
-  position: absolute;
-  left: 130px;
-  top: 110px;
-  width: 33px;
-  height: 45px;
-  border: 2px solid #666;
-  font-size: 25px;
-  font-weight: 400;
-  padding: 2px 2px 2px 2px;
-  text-align: center;
-`
-export const TypeCandidate = styled.h1`
-  display: block;
-  position: absolute;
-  left: 200px;
-`
