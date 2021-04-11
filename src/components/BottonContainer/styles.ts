@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: block;
+  margin-top: 5vh;
   width: 100%;
-  height: 19.5vh;
+  height: 24vh;
   border: 3px solid #666;
   font-size: 30px;
   font-weight: 400;
