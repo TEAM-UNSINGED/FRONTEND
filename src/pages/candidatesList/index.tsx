@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import {useInput} from '../../hooks/input';
 
-import BottomContainer from '../../components/BottonContainer';
+import BottomContainer from '../../components/BottomContainer';
 import PictureContainer from '../../components/PictureContainer';
 
 

@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: relative;
+  //position: relative;
   width: 60%;
-  display: block;
+  //display: block;
   padding: 30px 10px 10px 10px;
 `
 
 export const Content = styled.div`
-  display: block;
-  position: absolute;
-  left: 50%;
+  //display: block;
+  //position: absolute;
+  right: 50%;
   width: 50px;
   height: 60px;
   border: 3px solid #666;
