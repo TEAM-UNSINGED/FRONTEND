@@ -6,7 +6,7 @@ import {useInput} from '../../hooks/input';
 import Input from '../../components/Input'
 
 import { Container } from '../Landing/styles';
-import { Content } from './styles';
+import { Content, Divs } from './styles';
 
 const CandidateList: React.FC = () => {
   const {message, addMessage} = useInput();
