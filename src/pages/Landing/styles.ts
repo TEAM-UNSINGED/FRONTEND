@@ -17,19 +17,6 @@ export const Container = styled.div`
   h2{
     color: #ff0000;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 809px;
   }
-`
-
-export const Button = styled.button `
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 15px;
-  text-align: center;
-  background-color: #555555;
-  border: none;
-  color: white;
-  border-radius: 12px;
-  display: flex;
 `
