@@ -13,3 +13,15 @@ export const Content = styled.div`
     text-align: center;
     display: inline-block;
 `
+
+export const TopPictureContainer = styled.div`
+  position: absolute;
+  right: 23.5%;
+  top: 3px;
+`
+
+export const BottomPictureContainer = styled.div`
+  position: absolute;
+  right: 23.5%;
+  bottom: 240px;
+`
