@@ -4,8 +4,8 @@ import { Switch, Route} from 'react-router-dom';
 import Landing from '../pages/Landing';
 import List from '../pages/list';
 import Validate from '../pages/validate';
-import Voting from '../pages/votingScreen';
-import EndEscreen from '../pages/endScreen';
+import Voting from '../pages/voting';
+import EndEscreen from '../pages/end';
 
 const Routes: React.FC = () => (
   <Switch>
