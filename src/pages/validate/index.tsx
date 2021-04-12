@@ -35,11 +35,12 @@ const Validate: React.FC = () => {
       setError('ERRO NO BACKEND!');
       clearError();
     });
-    if ({response}) {
+    console.log({response}, 'RESPONSE');
+    if (!!{response}) {
       addMessage('');
       history.push('/voting');
     }else{
-      setError('CPF INVALIDO!');
+      setError('CPF JÁ VOTOU!');
       clearError();
     }
   }, [addMessage, clearError, history]);

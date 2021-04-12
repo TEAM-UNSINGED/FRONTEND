@@ -15,9 +15,9 @@ interface VotingProps {
 }
 
 const Voting: React.FC<VotingProps> = ({type = 'Presidente'}) => {
-  const [voto, setVoto] = useState <string[]>([]);
+  const [voto/*, setVoto*/] = useState <string[]>([]);
   const {message, addMessage} = useInput();
-  const [position, setPosition] = useState(0);
+  // const [position, setPosition] = useState(0);
   const history = useHistory();
 
   const Sessions = {
