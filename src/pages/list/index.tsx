@@ -9,11 +9,22 @@ import { Container, Content, NumberContainer, BottomContainer, TopPictureContain
 
 interface VotingProps {
   type?: 'Menu' | 'Presidente' | 'Governador' | 'Senador';
-  candidates?: object;
+  candidates?: Array<CandidatesProps>;
+}
+
+interface CandidatesProps{
+  name: string;
+  nameVice: string;
+  number: number;
+  party: string;
+  photo: string;
+  photoVice: string;
+  type: string;
 }
 
 const List: React.FC<VotingProps> = ({type = 'Menu', candidates}) => {
   const typeRef = useRef<VotingProps>({} as VotingProps);
+  const [ArrayOfCandidates, setArrayOfCandidates] = useState<CandidatesProps[]>([]);
   const {message, addMessage} = useInput();
   const history = useHistory();
   const [error, setError] = useState('');
@@ -36,34 +47,49 @@ const List: React.FC<VotingProps> = ({type = 'Menu', candidates}) => {
   }, [setError]);
 
   const getCandidates = useCallback(async () => {
-    const response = await Api.get(
-      '/candidate',
-      {params: {enum: typeRef.current.type?.toLowerCase()}},
+    const candidato = typeRef.current.type?.toString();
+    await Api.get<CandidatesProps[]>(
+      '/list', 
+      {params: {type: candidato}},
     ).catch((error) => {
       console.log(error, 'ERRO NO BACKEND!');
+    }).then((response) => {
+      if (response) {
+        console.log(response.data, 'RESPONSE');
+        response.data.forEach((value) => {
+          console.log(value, 'VALUE');
+          const candidate: CandidatesProps = value;
+          console.log({candidate}, 'Candidate');
+          setArrayOfCandidates((state) => [...state, candidate]);
+          console.log(ArrayOfCandidates, 'ARRAYdeCandidatos');
+        });
+        setArrayOfCandidates(response.data);
+        ArrayOfCandidates.forEach((value) => {
+          console.log(value, 'Array');
+        });
+      }
     });
-    console.log(response, 'RESPONSE');
-  }, []);
+  }, [ArrayOfCandidates]);
 
   const handleMenuOptions = useCallback(() => {
     switch (message) {
       case '1': {
         addMessage('');
-        typeRef.current.type='Presidente'
+        typeRef.current.type='Presidente';
         getCandidates();
         history.push('/list', typeRef.current);
         break;
       }
       case '2': {
         addMessage('');
-        typeRef.current.type='Presidente'
+        typeRef.current.type='Governador';
         getCandidates();
         history.push('/list', typeRef.current);;
         break;
       }
       case '3': {
         addMessage('');
-        typeRef.current.type='Presidente'
+        typeRef.current.type='Senador';
         getCandidates();
         history.push('/list', typeRef.current);
         break;

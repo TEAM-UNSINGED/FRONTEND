@@ -11,10 +11,11 @@ import { InputContent, TypeCandidate, InfoContainer, BottomContainer } from './s
 
 
 interface VotingProps {
-  type?: 'Presidente' | 'Governador' | 'Senador';
+  sessionType?: 'Presidente' | 'Governador' | 'Senador';
+  viewType?: 'true' | 'false';
 }
 
-const Voting: React.FC<VotingProps> = ({type = 'Presidente'}) => {
+const Voting: React.FC<VotingProps> = ({sessionType = 'Presidente', viewType = 'false'}) => {
   const [voto/*, setVoto*/] = useState <string[]>([]);
   const {message, addMessage} = useInput();
   // const [position, setPosition] = useState(0);
@@ -72,9 +73,9 @@ const Voting: React.FC<VotingProps> = ({type = 'Presidente'}) => {
   return (
     <Container>
       <h1>Seu voto para</h1>
-      <TypeCandidate>{type}</TypeCandidate>
-      {Sessions[type]}
-      {Data['true']}
+      <TypeCandidate>{sessionType}</TypeCandidate>
+      {Sessions[sessionType]}
+      {Data[viewType]}
     </Container>
   );
 };
