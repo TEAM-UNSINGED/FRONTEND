@@ -30,20 +30,20 @@ const Validate: React.FC = () => {
   const handleValidate = useCallback(async (completo: string) => {
     const response = await Api.get(
       '/validate',
-      {headers: {completo}},
-    ).catch((error) => {
-      console.log(error, 'ERRO');
+      {headers: {cpf: completo}},
+    ).catch(() => {
+      setError('ERRO NO BACKEND!');
+      clearError();
     });
-    console.log(response, 'response');
-    /*.then((response) => {
-      if (!!response) {
-        history.push('/voting');
-      }else{
-        setError('CPF INVALIDO!');
-        clearError();
-      }
-    });*/
-  }, []);
+    console.log({response}, 'RESPONSE');
+    if (!!{response}) {
+      addMessage('');
+      history.push('/voting');
+    }else{
+      setError('CPF JÁ VOTOU!');
+      clearError();
+    }
+  }, [addMessage, clearError, history]);
   
   const changeValue = useCallback(() => {
     setCPF((state) => [...state, message]);;
@@ -62,7 +62,7 @@ const Validate: React.FC = () => {
       }else if (message === 'Cf'){
         addMessage('');
         if (position !== 11) {
-          setError('CPF INVALIDO MENOR 11!');
+          setError('CPF INVALIDO!');
           clearError();
         }else{
           let valida = 0;
@@ -85,14 +85,18 @@ const Validate: React.FC = () => {
             }
             if ((valida*10) % 11 === parseInt(CPF[10], 10)){
               let completo = '';
-              for (let i = 0; i <= CPF.length; i++) {
+              for (let i = 0; i <= 10; i++) {
                 completo += CPF[i];
               }
               handleValidate(completo);
+            }else{
+              setError('CPF INVALIDO!');
+              clearError();
             }
+          }else{
+            setError('CPF INVALIDO!');
+            clearError();
           }
-          setError('CPF INVALIDO AQUI FIM!');
-          clearError();
         }
       }else if (position < 11){
         changeValue();

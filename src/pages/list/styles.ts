@@ -35,6 +35,11 @@ export const Content = styled.div`
     margin-left: 10px;
 `
 
+export const BottomContainer = styled.div`
+  position: relative;
+  top: 12.5vh;
+`
+
 export const TopPictureContainer = styled.div`
   position: absolute;
   right: 23.5%;
